@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2021",
+    "types": ["node"],
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist/debug",
+    "baseUrl": "./",
+    "paths": {
+
+    }
+  },
+  "include": [ "./" ],
+  "exclude": [ "node_modules", "dist" ]
+
+}
