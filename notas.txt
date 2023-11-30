@@ -1,0 +1,10 @@
+base de datos:
+    postgres
+    usuario:postgres
+    clave:admin123
+    namedb:login_serverless
+    url:login-aws-serverless.cwprsw7zepte.sa-east-1.rds.amazonaws.com
+
+
+api creada para usar con servicio de oauth de google como facebook o google
+en la app de flutter mobile

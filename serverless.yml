@@ -2,13 +2,60 @@ org: jhon64
 app: mi-primer-projec
 service: serverless-express-postgresql
 frameworkVersion: '3'
-
+dashboard:
+  disableMonitoring: true
 provider:
   name: aws
   runtime: nodejs18.x
+  region: sa-east-1
+  #profile: default
+  profile: default
+  architecture: arm64
+  stage: p
+  timeout: 10 # Máximo de segundos de ejecución de las funciones
+  tracing:
+    apiGateway: false
+  httpApi:
+    cors: true
 
+  #deploymentBucket:
+  #  name: serverless-framework-artifacts-yapu
+custom:
+  esbuild:
+    config: './esbuild.js'
+    bundle: true
+    minify: true
+  #serverless-offline:
+  #  httpPort: 5000
+  #  lambdaPort: 5000
+package:
+  patterns:
+    - '!node_modules/serverless-offline/**'
+    - '!endpoints/**'
 functions:
   api:
-    handler: index.handler
+    memorySize: 215
+    handler: src/main.handler
+    timeout: 10
     events:
-      - httpApi: '*'
+      - httpApi:
+          path: /api
+          method: GET
+      - httpApi:
+          path: /api/{uri}
+          method: GET
+      - httpApi:
+          path: /api/{uri}
+          method: POST
+      - httpApi:
+          path: /api/{uri}
+          method: PUT
+      - httpApi:
+          path: /api/{uri}
+          method: DELETE
+
+
+
+plugins:
+  - serverless-offline
+  - serverless-esbuild

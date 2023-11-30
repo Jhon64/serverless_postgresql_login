@@ -12,10 +12,14 @@
     "outDir": "dist/debug",
     "baseUrl": "./",
     "paths": {
-
+      "@functions/*": [ "functions/*" ],
+      "@handlers/*": [ "handlers-sanidad/*" ],
+      "@entities/*": [ "entities/*" ],
+      "@helpers/*": [ "helpers/*" ],
+      "@domain/*": [ "domain/*" ],
+      "@utils/*": [ "domain/*" ]
     }
   },
   "include": [ "./" ],
   "exclude": [ "node_modules", "dist" ]
-
 }
